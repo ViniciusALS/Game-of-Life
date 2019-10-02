@@ -13,6 +13,7 @@ class App extends React.Component {
         this.handleBtnClick = this.handleBtnClick.bind(this);
 
         this.state = {
+            isPlaying: false,
             boardLengh: 10,
             boardRandomness: 50,
             boardPieces: []
