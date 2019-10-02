@@ -1,4 +1,5 @@
 import React from 'react';
+import "./App.css";
 import GameBoard from "./GameBoard";
 import GameSlider from "./GameSlider";
 import GameBtn from "./GameBtn"
