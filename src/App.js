@@ -2,6 +2,15 @@ import React from 'react';
 import GameTitle from "./GameTitle";
 import GameBoard from "./GameBoard";
 class App extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            boardLengh: 10,
+            boardRandomness: 50,
+            boardPieces: []
+        };
+    }
     
     render(){
 
