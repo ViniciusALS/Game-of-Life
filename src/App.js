@@ -5,7 +5,9 @@ class App extends React.Component {
     render(){
 
         return(
-            <GameTitle/>
+            <GameTitle
+                title="the game of life"/>
+                
         );
     }    
 }
