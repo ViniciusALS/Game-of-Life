@@ -3,16 +3,9 @@ import "./GameSlider.css";
 
 class GameSlider extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: this.props.value
-        }
-    }
-
     render() {
 
-        const value = this.state.value;
+        const value = this.props.value;
         const label = this.props.label;
         const min = 5;
         const max = (label === "Lengh") ? 1000 : 100;
@@ -21,8 +14,21 @@ class GameSlider extends React.Component {
             <div className="slider-container">
                 <p>{label}</p>
 
-                <input className="num-selector" type="number" value={value}/>
-                <input className="slider" type="range" min={min} max={max}/>
+                <input 
+                    className="num-selector" 
+                    type="number"
+                    min={min}
+                    max={max} 
+                    value={value} 
+                    onChange={this.props.onChange}/>
+
+                <input 
+                    className="slider" 
+                    type="range" 
+                    min={min} 
+                    max={max}
+                    value={value}
+                    onChange={this.props.onChange}/>
             </div>
         );
     }
