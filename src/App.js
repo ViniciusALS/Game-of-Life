@@ -27,6 +27,7 @@ class App extends React.Component {
         const value = e.target.value
         
         this.setState({
+            isPlaying: false,
             boardLengh: value
         });
     }
@@ -35,6 +36,7 @@ class App extends React.Component {
         const value = e.target.value;
 
         this.setState({
+            isPlaying: false,
             boardRandomness: value
         });
     }
@@ -75,6 +77,7 @@ class App extends React.Component {
                     onChange={this.handleSpeedChange} />
 
                 <GameBtn 
+                    isPlaying={this.state.isPlaying}
                     onClick={this.handleBtnClick}/>
 
             </div>
