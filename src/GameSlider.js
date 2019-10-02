@@ -12,7 +12,7 @@ class GameSlider extends React.Component {
 
         return(
             <div className="slider-container">
-                <p>{label}</p>
+                <p className="slider-label">{label}</p>
 
                 <input 
                     className="num-selector" 
