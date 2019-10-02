@@ -25,7 +25,7 @@ class App extends React.Component {
 
         return(
 
-            <React.Fragment>
+            <div className="container">
                 <h1>The Game of Life</h1>
 
                 <GameBoard 
@@ -43,7 +43,7 @@ class App extends React.Component {
 
                 <GameBtn />
 
-            </React.Fragment>
+            </div>
 
         );
     }    
