@@ -1,5 +1,5 @@
 import React from 'react';
-import "./GameSlider.css";
+import "./stylesheets/GameSlider.css";
 
 class GameSlider extends React.Component {
 

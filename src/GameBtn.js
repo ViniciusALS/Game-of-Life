@@ -1,5 +1,5 @@
 import React from "react";
-import "./GameBtn.css"
+import "./stylesheets/GameBtn.css"
 
 class GameBtn extends React.Component {
 
