@@ -2,6 +2,13 @@ import React from 'react';
 
 class GameSlider extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: this.props.value
+        }
+    }
+
     render() {
 
         const label = this.props.label;
