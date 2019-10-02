@@ -1,0 +1,22 @@
+.game-board {
+    margin: 0;
+    padding: 0;
+}
+
+.game-row {
+    height: 50px;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+.game-col {
+    width: 50px;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+.is-alive {
+    background-color: black;
+}
