@@ -1,12 +1,11 @@
 import React from 'react';
-import Title from "./Title";
+import GameTitle from "./GameTitle";
 class App extends React.Component {
     
     render(){
 
         return(
-            
-            <Title />
+            <GameTitle/>
         );
     }    
 }
