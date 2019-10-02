@@ -11,6 +11,7 @@ class App extends React.Component {
         
         this.handleLenghChange = this.handleLenghChange.bind(this);
         this.handleRandomChange = this.handleRandomChange.bind(this);
+        this.handleSpeedChange = this.handleSpeedChange.bind(this);
         this.handleBtnClick = this.handleBtnClick.bind(this);
 
         this.state = {
@@ -22,8 +23,30 @@ class App extends React.Component {
         };
     }
 
-    handleLenghChange(){}
-    handleRandomChange(){}
+    handleLenghChange(e) {
+        const value = e.target.value
+        
+        this.setState({
+            boardLengh: value
+        });
+    }
+
+    handleRandomChange(e) {
+        const value = e.target.value;
+
+        this.setState({
+            boardRandomness: value
+        });
+    }
+
+    handleSpeedChange(e) {
+        const value = e.target.value;
+
+        this.setState({
+            boardSpeed: value
+        });
+    }
+
     handleBtnClick(){}
     
     render(){
