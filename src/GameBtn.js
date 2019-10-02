@@ -4,7 +4,9 @@ class GameBtn extends React.Component {
 
     render() {
 
-        return();
+        return(
+            <input type="button" value="Go"/>
+        );
     }
 }
 
