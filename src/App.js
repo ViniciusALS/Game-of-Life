@@ -10,6 +10,7 @@ class App extends React.Component {
         
         this.handleLenghChange = this.handleLenghChange.bind(this);
         this.handleRandomChange = this.handleRandomChange.bind(this);
+        this.handleBtnClick = this.handleBtnClick.bind(this);
 
         this.state = {
             boardLengh: 10,
@@ -20,6 +21,7 @@ class App extends React.Component {
 
     handleLenghChange(){}
     handleRandomChange(){}
+    handleBtnClick(){}
     
     render(){
 
@@ -41,7 +43,8 @@ class App extends React.Component {
                     value={this.state.boardRandomness}
                     onChange={this.handleRandomChange} />
 
-                <GameBtn />
+                <GameBtn 
+                    onClick={this.handleBtnClick}/>
 
             </div>
 
