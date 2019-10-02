@@ -1,5 +1,4 @@
 import React from 'react';
-import GameTitle from "./GameTitle";
 import GameBoard from "./GameBoard";
 class App extends React.Component {
 
@@ -17,9 +16,7 @@ class App extends React.Component {
         return(
 
             <React.Fragment>
-                <GameTitle
-                    title="the game of life"/>
-
+                <h1>The Game of Life</h1>
                 <GameBoard lengh="4"/>
             </React.Fragment>
 
