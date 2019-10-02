@@ -11,6 +11,7 @@ class GameSlider extends React.Component {
 
     render() {
 
+        const value = this.state.value;
         const label = this.props.label;
         const value = this.props.value;
         const min = 5;
