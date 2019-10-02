@@ -4,7 +4,14 @@ class GameSlider extends React.Component {
 
     render() {
 
-        return();
+        const label = this.props.label;
+        const value = this.props.value;
+        const min = 5;
+        const max = (label === "Lengh") ? 1000 : 100;
+
+        return(
+            <input type="range" min={min} max={max} value={value}/>
+        );
     }
 }
 
