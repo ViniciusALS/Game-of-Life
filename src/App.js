@@ -1,6 +1,7 @@
 import React from 'react';
 import GameBoard from "./GameBoard";
 import GameSlider from "./GameSlider";
+import GameBtn from "./GameBtn"
 
 class App extends React.Component {
 
@@ -39,6 +40,8 @@ class App extends React.Component {
                     label="Randomness"
                     value={this.state.boardRandomness}
                     onChange={this.handleRandomChange} />
+
+                <GameBtn />
 
             </React.Fragment>
 
