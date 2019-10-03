@@ -9,14 +9,14 @@ class App extends React.Component {
     constructor(props){
         super(props);
         
-        this.handleLenghChange = this.handleLenghChange.bind(this);
+        this.handlelengthChange = this.handlelengthChange.bind(this);
         this.handleRandomChange = this.handleRandomChange.bind(this);
         this.handleSpeedChange = this.handleSpeedChange.bind(this);
         this.handleBtnClick = this.handleBtnClick.bind(this);
 
         this.state = {
             isPlaying: false,
-            boardLengh: 10,
+            boardlength: 10,
             boardRandomness: 50,
             boardSpeed: 30,
             boardPieces: []
@@ -28,11 +28,11 @@ class App extends React.Component {
         let collumns = [];
         let board = [];
 
-        for(let i = 0; i < this.state.boardLengh; i++){
+        for(let i = 0; i < length; i++){
             collumns.push(0);
         }
 
-        for(let i = 0; i < this.state.boardLengh; i++){
+        for(let i = 0; i < length; i++){
             board.push(collumns);
 
             if(i === 14)
@@ -42,12 +42,12 @@ class App extends React.Component {
         return board;
     }
 
-    handleLenghChange(e) {
+    handlelengthChange(e) {
         const value = e.target.value
         
         this.setState({
             isPlaying: false,
-            boardLengh: value,
+            boardlength: value,
             boardPieces: this.createBoardArray()
         });
     }
@@ -93,9 +93,9 @@ class App extends React.Component {
                     board={this.state.boardPieces}/>
 
                 <GameSlider 
-                    label="Lengh"
-                    value={this.state.boardLengh}
-                    onChange={this.handleLenghChange} />
+                    label="length"
+                    value={this.state.boardlength}
+                    onChange={this.handlelengthChange} />
 
                 <GameSlider 
                     label="Randomness"
