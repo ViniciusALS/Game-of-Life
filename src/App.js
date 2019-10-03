@@ -23,7 +23,7 @@ class App extends React.Component {
         };
     }
 
-    createBoardArray(){
+    createBoardArray(length = this.state.boardlength){
 
         let collumns = [];
         let board = [];
