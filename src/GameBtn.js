@@ -8,7 +8,10 @@ class GameBtn extends React.Component {
         const buttonValue = this.props.isPlaying ? "Stop" : "Start";
 
         return(
-            <input type="button" value={buttonValue}/>
+            <input 
+                type="button"  
+                value={buttonValue}
+                onClick={this.props.onClick} />
         );
     }
 }
