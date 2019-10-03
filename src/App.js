@@ -34,9 +34,6 @@ class App extends React.Component {
 
         for(let i = 0; i < length; i++){
             board.push(collumns);
-
-            if(i === 14)
-                console.log("sadlfkjlaskdf");
         }
 
         return board;
