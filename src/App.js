@@ -59,7 +59,11 @@ class App extends React.Component {
                 <h1>The Game of Life</h1>
 
                 <GameBoard 
-                    lengh="4"/>
+                    isPlaying={this.state.isPlaying}
+                    lengh={this.state.boardLengh}
+                    randomness={this.state.boardRandomness}
+                    speed={this.state.boardSpeed}
+                    board={this.state.boardPieces}/>
 
                 <GameSlider 
                     label="Lengh"
