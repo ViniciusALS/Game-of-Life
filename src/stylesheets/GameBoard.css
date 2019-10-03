@@ -1,20 +1,13 @@
 .game-board {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+    border-collapse: collapse;
+    width: 30vw;
+    height: 30vw;
 }
 
-.game-row {
-    height: 50px;
+.game-row, .game-col {
     border: 1px solid black;
-    margin: 0;
-    padding: 0;
-}
-
-.game-col {
-    width: 50px;
-    border: 1px solid black;
-    margin: 0;
-    padding: 0;
 }
 
 .is-alive {
