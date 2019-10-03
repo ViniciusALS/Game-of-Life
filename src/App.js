@@ -19,7 +19,6 @@ class App extends React.Component {
             boardLengh: 10,
             boardRandomness: 50,
             boardSpeed: 30,
-            boardPieces: []
         };
     }
 
@@ -67,8 +66,7 @@ class App extends React.Component {
                     isPlaying={this.state.isPlaying}
                     lengh={this.state.boardLengh}
                     randomness={this.state.boardRandomness}
-                    speed={this.state.boardSpeed}
-                    board={this.state.boardPieces}/>
+                    speed={this.state.boardSpeed}/>
 
                 <GameSlider 
                     label="Lengh"
