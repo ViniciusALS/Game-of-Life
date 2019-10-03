@@ -82,8 +82,6 @@ class App extends React.Component {
 
                 <GameBoard 
                     isPlaying={this.state.isPlaying}
-                    lengh={this.state.boardLengh}
-                    randomness={this.state.boardRandomness}
                     speed={this.state.boardSpeed}
                     board={this.state.boardPieces}/>
 
