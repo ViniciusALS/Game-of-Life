@@ -23,12 +23,32 @@ class App extends React.Component {
         };
     }
 
+    createBoardArray(){
+
+        let collumns = [];
+        let board = [];
+
+        for(let i = 0; i < this.state.boardLengh; i++){
+            collumns.push(0);
+        }
+
+        for(let i = 0; i < this.state.boardLengh; i++){
+            board.push(collumns);
+
+            if(i === 14)
+                console.log("sadlfkjlaskdf");
+        }
+
+        return board;
+    }
+
     handleLenghChange(e) {
         const value = e.target.value
         
         this.setState({
             isPlaying: false,
-            boardLengh: value
+            boardLengh: value,
+            boardPieces: this.createBoardArray()
         });
     }
 
@@ -57,6 +77,8 @@ class App extends React.Component {
     }
     
     render(){
+
+        this.state.boardPieces = this.createBoardArray();
 
         return(
 
