@@ -75,8 +75,6 @@ class App extends React.Component {
     
     render(){
 
-        this.state.boardPieces = this.createBoardArray();
-
         return(
 
             <div className="container">
