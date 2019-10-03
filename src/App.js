@@ -19,7 +19,7 @@ class App extends React.Component {
             boardlength: 10,
             boardRandomness: 50,
             boardSpeed: 30,
-            boardPieces: []
+            boardPieces: this.createBoardArray(10)
         };
     }
 
