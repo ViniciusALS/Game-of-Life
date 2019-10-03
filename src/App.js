@@ -49,7 +49,12 @@ class App extends React.Component {
         });
     }
 
-    handleBtnClick(){}
+    handleBtnClick() {
+        
+        this.setState({
+            isPlaying: !this.state.isPlaying
+        });
+    }
     
     render(){
 
