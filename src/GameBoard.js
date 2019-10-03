@@ -39,6 +39,7 @@ class GameBoard extends React.Component {
 
     render() {
 
+        const board = this.props.board;
         const lengh = parseInt(this.props.lengh);
 
         return(
