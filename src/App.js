@@ -12,6 +12,7 @@ class App extends React.Component {
         this.handlelengthChange = this.handlelengthChange.bind(this);
         this.handleRandomChange = this.handleRandomChange.bind(this);
         this.handleSpeedChange = this.handleSpeedChange.bind(this);
+        this.randomlyPopulateArray = this.randomlyPopulateArray.bind(this);
         this.handleBtnClick = this.handleBtnClick.bind(this);
 
         this.state = {
@@ -21,6 +22,29 @@ class App extends React.Component {
             boardSpeed: 30,
             boardPieces: this.createBoardArray(10)
         };
+
+        this.randomlyPopulateArray();
+    }
+
+    randomlyPopulateArray() {
+
+        let randomBoard = this.state.boardPieces.slice();
+
+        randomBoard.forEach((row, index, arr) => {
+            row.forEach((cell, index, arr) => {
+
+                const randomNumber = Math.random() * 100;
+                
+                if (randomNumber > this.state.boardRandomness)
+                    arr[index] = 1;
+                else 
+                    arr[index] = 0;
+            });
+        });
+
+        this.setState({
+            boardPieces: randomBoard
+        })
     }
 
     createBoardArray(length = this.state.boardLength){
@@ -56,6 +80,8 @@ class App extends React.Component {
             isPlaying: false,
             boardRandomness: value
         });
+
+        this.randomlyPopulateArray();
     }
 
     handleSpeedChange(e) {
