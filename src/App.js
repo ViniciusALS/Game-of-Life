@@ -16,14 +16,14 @@ class App extends React.Component {
 
         this.state = {
             isPlaying: false,
-            boardlength: 10,
+            boardLength: 10,
             boardRandomness: 50,
             boardSpeed: 30,
             boardPieces: this.createBoardArray(10)
         };
     }
 
-    createBoardArray(length = this.state.boardlength){
+    createBoardArray(length = this.state.boardLength){
 
         let collumns = [];
         let board = [];
@@ -44,7 +44,7 @@ class App extends React.Component {
         
         this.setState({
             isPlaying: false,
-            boardlength: value,
+            boardLength: value,
             boardPieces: this.createBoardArray()
         });
     }
@@ -86,8 +86,8 @@ class App extends React.Component {
                     board={this.state.boardPieces}/>
 
                 <GameSlider 
-                    label="length"
-                    value={this.state.boardlength}
+                    label="Length"
+                    value={this.state.boardLength}
                     onChange={this.handlelengthChange} />
 
                 <GameSlider 
