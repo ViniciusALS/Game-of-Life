@@ -7,7 +7,7 @@ class GameSlider extends React.Component {
 
         const value = this.props.value;
         const label = this.props.label;
-        const min = (label === "Speed") ? 0 : 5;
+        const min = 0;
         const max = 100;
 
         return(
