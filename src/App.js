@@ -12,6 +12,7 @@ class App extends React.Component {
         this.handlelengthChange = this.handlelengthChange.bind(this);
         this.handleRandomChange = this.handleRandomChange.bind(this);
         this.handleSpeedChange = this.handleSpeedChange.bind(this);
+        this.createBoardArray = this.createBoardArray.bind(this);
         this.randomlyPopulateArray = this.randomlyPopulateArray.bind(this);
         this.handleBtnClick = this.handleBtnClick.bind(this);
 
@@ -20,47 +21,44 @@ class App extends React.Component {
             boardLength: 10,
             boardRandomness: 50,
             boardSpeed: 30,
-            boardPieces: this.createBoardArray(10)
+            boardPieces: []
         };
-
-        this.randomlyPopulateArray();
     }
 
-    randomlyPopulateArray() {
+    randomlyPopulateArray(board) {
 
-        let randomBoard = this.state.boardPieces.slice();
-
-        randomBoard.forEach((row, index, arr) => {
-            row.forEach((cell, index, arr) => {
+        board = board.map(row => {
+            row = row.map(() => {
 
                 const randomNumber = Math.random() * 100;
                 
-                if (randomNumber > this.state.boardRandomness)
-                    arr[index] = 1;
+                if (randomNumber < this.state.boardRandomness)
+                    return true;
                 else 
-                    arr[index] = 0;
+                    return false;
             });
+
+            return row;
         });
 
         this.setState({
-            boardPieces: randomBoard
+            boardPieces: board
         })
     }
 
-    createBoardArray(length = this.state.boardLength){
-
+    createBoardArray() {
         let collumns = [];
         let board = [];
 
-        for(let i = 0; i < length; i++){
+        for(let i = 0; i < this.state.boardLength; i++){
             collumns.push(0);
         }
 
-        for(let i = 0; i < length; i++){
+        for(let i = 0; i < this.state.boardLength; i++){
             board.push(collumns);
         }
 
-        return board;
+        this.randomlyPopulateArray(board);
     }
 
     handlelengthChange(e) {
@@ -69,8 +67,9 @@ class App extends React.Component {
         this.setState({
             isPlaying: false,
             boardLength: value,
-            boardPieces: this.createBoardArray()
         });
+
+        this.createBoardArray();
     }
 
     handleRandomChange(e) {
@@ -81,7 +80,7 @@ class App extends React.Component {
             boardRandomness: value
         });
 
-        this.randomlyPopulateArray();
+        this.randomlyPopulateArray(this.state.boardPieces);
     }
 
     handleSpeedChange(e) {
@@ -97,6 +96,10 @@ class App extends React.Component {
         this.setState({
             isPlaying: !this.state.isPlaying
         });
+    }
+
+    componentDidMount(){
+        this.createBoardArray();
     }
     
     render(){
