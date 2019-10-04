@@ -61,6 +61,16 @@ class App extends React.Component {
         this.randomlyPopulateArray(board);
     }
 
+    updateBoardArray(){
+
+        let board = this.state.boardPieces.slice();
+
+        if (board)
+            return;
+        
+        let curCellPos = [0,0];
+    }
+
     handlelengthChange(e) {
         const value = e.target.value
         
