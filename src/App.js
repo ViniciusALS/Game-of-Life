@@ -12,8 +12,6 @@ class App extends React.Component {
         this.handlelengthChange = this.handlelengthChange.bind(this);
         this.handleRandomChange = this.handleRandomChange.bind(this);
         this.handleSpeedChange = this.handleSpeedChange.bind(this);
-        this.createBoardArray = this.createBoardArray.bind(this);
-        this.randomlyPopulateArray = this.randomlyPopulateArray.bind(this);
         this.handleBtnClick = this.handleBtnClick.bind(this);
 
         this.state = {
@@ -73,26 +71,20 @@ class App extends React.Component {
         return this.state.boardPieces[row][col];
     }
 
-    countsCellNeighbours(board, row, col){
-        const upperLeftCell    = (this.returnCellValue(row - 1, col - 1)) ? 1 : 0;
-        const upperMiddleCell  = (this.returnCellValue(row - 1, col)) ? 1 : 0;
-        const upperRightCell   = (this.returnCellValue(row - 1, col + 1)) ? 1 : 0;
-        const centerLeftCell   = (this.returnCellValue(row, col - 1)) ? 1 : 0;
-        const centerRightCell  = (this.returnCellValue(row, col + 1)) ? 1 : 0;
-        const bottonLeftCell   = (this.returnCellValue(row + 1, col - 1)) ? 1 : 0;
-        const bottonMiddleCell = (this.returnCellValue(row + 1, col)) ? 1 : 0;
-        const bottonRightCell  = (this.returnCellValue(row + 1, col + 1)) ? 1 : 0;
+    countsCellNeighbours(row, col){
 
-        return (
-            upperLeftCell +
-            upperMiddleCell + 
-            upperRightCell +
-            centerLeftCell +
-            centerRightCell +
-            bottonLeftCell +
-            bottonMiddleCell +
-            bottonRightCell
-        );
+        let totalNeighbours = 0;
+        
+        totalNeighbours += (this.returnCellValue(row - 1, col - 1)) ? 1 : 0;
+        totalNeighbours += (this.returnCellValue(row - 1, col)) ? 1 : 0;
+        totalNeighbours += (this.returnCellValue(row - 1, col + 1)) ? 1 : 0;
+        totalNeighbours += (this.returnCellValue(row, col - 1)) ? 1 : 0;
+        totalNeighbours += (this.returnCellValue(row, col + 1)) ? 1 : 0;
+        totalNeighbours += (this.returnCellValue(row + 1, col - 1)) ? 1 : 0;
+        totalNeighbours += (this.returnCellValue(row + 1, col)) ? 1 : 0;
+        totalNeighbours += (this.returnCellValue(row + 1, col + 1)) ? 1 : 0;
+
+        return (totalNeighbours);
     }
 
     determinesNextCellState(currentCell, numberOfNeighbours){
