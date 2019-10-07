@@ -26,10 +26,11 @@ class App extends React.Component {
         };
     }
 
-    randomlyPopulateArray(board) {
+    emptyBoard(length) {
 
-        board = board.map(row => {
-            row = row.map(() => {
+        return (new Array(length).fill(null)
+            .map(()=> new Array(length).fill(0)));
+    }
 
     setRandomBoard(length) {
         let board = this.emptyBoard(length);
