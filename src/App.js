@@ -102,9 +102,13 @@ class App extends React.Component {
     }
 
     handleBtnClick() {
+
+        let shouldPlay = !this.state.isPlaying;
+        
+        this.playGameOfLife(shouldPlay);
         
         this.setState({
-            isPlaying: !this.state.isPlaying
+            isPlaying: shouldPlay
         });
     }
 
