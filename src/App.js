@@ -200,10 +200,20 @@ class App extends React.Component {
         let shouldPlay = !this.state.isPlaying;
         
         this.playGameOfLife(shouldPlay);
-        
-        this.setState({
-            isPlaying: shouldPlay
-        });
+
+        if (shouldPlay){
+            this.setState({
+                isPlaying: shouldPlay
+            });
+        }
+        else {
+
+            this.randomlyPopulateArray(this.state.boardPieces);
+
+            this.setState({
+                isPlaying: shouldPlay
+            });
+        }
     }
 
     playGameOfLife(isPlaying){
