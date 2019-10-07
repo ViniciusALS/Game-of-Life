@@ -95,16 +95,14 @@ class App extends React.Component {
     }
 
     countsCellNeighbours(board, row, col){
-        const upperLeftCell    = this.returnCellValue(board, row - 1, col - 1);
-        const upperMiddleCell  = this.returnCellValue(board, row - 1, col);
-        const upperRightCell   = this.returnCellValue(board, row - 1, col + 1);
-
-        const centerLeftCell   = this.returnCellValue(board, row, col - 1);
-        const centerRightCell  = this.returnCellValue(board, row, col + 1);
-
-        const bottonLeftCell   = this.returnCellValue(board, row + 1, col - 1);
-        const bottonMiddleCell = this.returnCellValue(board, row + 1, col);
-        const bottonRightCell  = this.returnCellValue(board, row + 1, col + 1);
+        const upperLeftCell    = (this.returnCellValue(row - 1, col - 1)) ? 1 : 0;
+        const upperMiddleCell  = (this.returnCellValue(row - 1, col)) ? 1 : 0;
+        const upperRightCell   = (this.returnCellValue(row - 1, col + 1)) ? 1 : 0;
+        const centerLeftCell   = (this.returnCellValue(row, col - 1)) ? 1 : 0;
+        const centerRightCell  = (this.returnCellValue(row, col + 1)) ? 1 : 0;
+        const bottonLeftCell   = (this.returnCellValue(row + 1, col - 1)) ? 1 : 0;
+        const bottonMiddleCell = (this.returnCellValue(row + 1, col)) ? 1 : 0;
+        const bottonRightCell  = (this.returnCellValue(row + 1, col + 1)) ? 1 : 0;
 
         return (
             upperLeftCell +
