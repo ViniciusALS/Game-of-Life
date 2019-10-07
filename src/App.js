@@ -69,7 +69,7 @@ class App extends React.Component {
         this.randomlyPopulateArray(board);
     }
 
-    returnCellValue(board, row, col){
+    returnCellValue(row, col){
 
         let length = this.state.boardPieces.length;
 
@@ -91,7 +91,7 @@ class App extends React.Component {
         }
         
 
-        return board[row][col];
+        return this.state.boardPieces[row][col];
     }
 
     countsCellNeighbours(board, row, col){
