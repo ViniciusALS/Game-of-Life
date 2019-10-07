@@ -111,32 +111,30 @@ class App extends React.Component {
     updateBoardArray(){
 
         let board = this.state.boardPieces.slice();
-        let newBoard = this.createBoard();
+        let length = this.state.boardPieces.length;
+        let nextBoard = this.emptyBoard(length);
 
-        if (!board)
-            return;
-        
-        for (let row = 0; row < board.length; row++){
-            for (let col = 0; col < board.length; col++){
-
-                const currentCell = this.returnCellValue(board, row, col);
-                const totalCellNeighbourhood = this.countsCellNeighbours(board, row, col);
-
-                newBoard[row][col] = this.determinesNextCellState(currentCell, totalCellNeighbourhood);
+        for (let i = 0; i < length; i++){
+            for (let j = 0; j < length; j++){
+                
+                const neighbours = this.countsCellNeighbours(i, j);
+                nextBoard[i][j] = this.determinesNextCellState(board[i][j], neighbours);
             }
         }
 
         this.setState({
-            boardPieces: newBoard
+            boardPieces: nextBoard
         });
     }
 
     handlelengthChange(e) {
-        const value = e.target.value
+        const newLegth = e.target.value
         
+        // this.setRandomBoard(newLegth);
+
         this.setState({
             isPlaying: false,
-            boardLength: value,
+            boardLength: newLegth,
         });
 
         this.setRandomBoard(this.state.boardLength);
