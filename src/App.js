@@ -139,10 +139,7 @@ class App extends React.Component {
 
     updateBoardArray(){
 
-        console.log("test");
-
         let board = this.state.boardPieces.slice();
-
         let newBoard = this.createBoard();
 
         if (!board)
