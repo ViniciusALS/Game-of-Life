@@ -108,6 +108,25 @@ class App extends React.Component {
         });
     }
 
+    playGameOfLife(isPlaying){
+
+        let timer = this.state.timer;
+        
+        if (isPlaying){
+            
+            timer = setInterval(()=>{
+                this.updateBoardArray();
+            }, 1000);
+
+            this.setState({
+                timer: timer
+            })
+        }
+        else {
+            clearInterval(timer);
+        }
+    }
+
     componentDidMount(){
         this.createBoardArray();
     }
