@@ -8,7 +8,7 @@ class App extends React.Component {
 
     constructor(props){
         super(props);
-        
+
         this.handlelengthChange = this.handlelengthChange.bind(this);
         this.handleRandomChange = this.handleRandomChange.bind(this);
         this.handleSpeedChange = this.handleSpeedChange.bind(this);
@@ -37,7 +37,7 @@ class App extends React.Component {
             for (let j = 0; j < length; j++){
 
                 const randomNumber = Math.random() * 100;
-                
+
                 board[i][j] = (randomNumber < this.state.boardRandomness) ? 1 : 0;
             }
         }
@@ -74,7 +74,7 @@ class App extends React.Component {
     countsCellNeighbours(row, col){
 
         let totalNeighbours = 0;
-        
+
         totalNeighbours += (this.returnCellValue(row - 1, col - 1)) ? 1 : 0;
         totalNeighbours += (this.returnCellValue(row - 1, col)) ? 1 : 0;
         totalNeighbours += (this.returnCellValue(row - 1, col + 1)) ? 1 : 0;
@@ -90,10 +90,10 @@ class App extends React.Component {
     determinesNextCellState(currentCell, numberOfNeighbours){
 
         if (currentCell){
-            
+
             if (numberOfNeighbours < 2)
                 return false;
-        
+
             if (numberOfNeighbours === 2 || numberOfNeighbours === 3)
                 return true;
 
@@ -103,7 +103,7 @@ class App extends React.Component {
         else {
             if (numberOfNeighbours === 3)
                 return true;
-            else   
+            else
                 return false;
         }
     }
@@ -116,7 +116,7 @@ class App extends React.Component {
 
         for (let i = 0; i < length; i++){
             for (let j = 0; j < length; j++){
-                
+
                 const neighbours = this.countsCellNeighbours(i, j);
                 nextBoard[i][j] = this.determinesNextCellState(board[i][j], neighbours);
             }
@@ -129,7 +129,7 @@ class App extends React.Component {
 
     handlelengthChange(e) {
         const newLegth = e.target.value
-        
+
         // this.setRandomBoard(newLegth);
 
         this.setState({
@@ -166,7 +166,7 @@ class App extends React.Component {
 
         if (!shouldPlay)
             this.setRandomBoard(this.state.boardLength);
-        
+
         this.setState({
             isPlaying: !this.state.isPlaying
         });
@@ -175,9 +175,9 @@ class App extends React.Component {
     playGameOfLife(isPlaying){
 
         let timer = this.state.timer;
-        
+
         if (isPlaying){
-            
+
             timer = setInterval(()=>{
                 this.updateBoardArray();
             }, this.state.boardSpeed * 10);
@@ -194,7 +194,7 @@ class App extends React.Component {
     componentDidMount(){
         this.setRandomBoard(this.state.boardLength);
     }
-    
+
     render(){
 
         return(
@@ -202,33 +202,33 @@ class App extends React.Component {
             <div className="container">
                 <h1>The Game of Life</h1>
 
-                <GameBoard 
+                <GameBoard
                     isPlaying={this.state.isPlaying}
                     board={this.state.boardPieces}/>
 
-                <GameSlider 
+                <GameSlider
                     label="Length"
                     value={this.state.boardLength}
                     onChange={this.handlelengthChange} />
 
-                <GameSlider 
+                <GameSlider
                     label="Randomness"
                     value={this.state.boardRandomness}
                     onChange={this.handleRandomChange} />
 
-                <GameSlider 
+                <GameSlider
                     label="Speed"
                     value={this.state.boardSpeed}
                     onChange={this.handleSpeedChange} />
 
-                <GameBtn 
+                <GameBtn
                     isPlaying={this.state.isPlaying}
                     onClick={this.handleBtnClick}/>
 
             </div>
 
         );
-    }    
+    }
 }
 
 export default App;
