@@ -223,7 +223,7 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        this.createBoardArray();
+        this.setRandomBoard(this.state.boardLength);
     }
     
     render(){
