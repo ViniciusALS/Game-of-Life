@@ -211,7 +211,7 @@ class App extends React.Component {
             
             timer = setInterval(()=>{
                 this.updateBoardArray();
-            }, 1000);
+            }, this.state.boardSpeed * 10);
 
             this.setState({
                 timer: timer
