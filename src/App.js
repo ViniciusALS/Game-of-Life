@@ -193,22 +193,14 @@ class App extends React.Component {
     handleBtnClick() {
 
         let shouldPlay = !this.state.isPlaying;
-        
         this.playGameOfLife(shouldPlay);
 
-        if (shouldPlay){
-            this.setState({
-                isPlaying: shouldPlay
-            });
-        }
-        else {
-
-            this.randomlyPopulateArray(this.state.boardPieces);
-
-            this.setState({
-                isPlaying: shouldPlay
-            });
-        }
+        if (!shouldPlay)
+            this.setRandomBoard(this.state.boardLength);
+        
+        this.setState({
+            isPlaying: !this.state.isPlaying
+        });
     }
 
     playGameOfLife(isPlaying){
