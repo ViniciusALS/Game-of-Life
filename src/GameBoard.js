@@ -2,7 +2,7 @@ import React from 'react';
 import "./stylesheets/GameBoard.css";
 
 class GameBoard extends React.Component {
- 
+
     renderBoard(){
 
         let boardTable = this.props.board.map(rows => {

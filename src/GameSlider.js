@@ -14,18 +14,18 @@ class GameSlider extends React.Component {
             <div className="slider-container">
                 <p className="slider-label">{label}</p>
 
-                <input 
-                    className="num-selector" 
+                <input
+                    className="num-selector"
                     type="number"
                     min={min}
-                    max={max} 
-                    value={value} 
+                    max={max}
+                    value={value}
                     onChange={this.props.onChange}/>
 
-                <input 
-                    className="slider" 
-                    type="range" 
-                    min={min} 
+                <input
+                    className="slider"
+                    type="range"
+                    min={min}
                     max={max}
                     value={value}
                     onChange={this.props.onChange}/>
