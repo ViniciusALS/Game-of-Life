@@ -36,7 +36,7 @@ class App extends React.Component {
         for (let i = 0; i < length; i++){
             for (let j = 0; j < length; j++){
 
-                const randomNumber = Math.random() * 100;
+                const randomNumber = Math.floor(Math.random() * 99);
 
                 board[i][j] = (randomNumber < this.state.boardRandomness) ? 1 : 0;
             }
