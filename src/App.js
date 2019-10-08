@@ -24,27 +24,42 @@ class App extends React.Component {
         };
     }
 
-    emptyBoard(length) {
+    setRandomBoard() {
 
-        return (new Array(length).fill(null)
-            .map(()=> new Array(length).fill(0)));
-    }
+        let collumns = [];
+        let board = [];
 
-    setRandomBoard(length) {
-        let board = this.emptyBoard(length);
+        for(let i = 0; i < this.state.boardLength; i++){
+            collumns.push(0);
+        }
 
-        for (let i = 0; i < length; i++){
-            for (let j = 0; j < length; j++){
+        for(let i = 0; i < this.state.boardLength; i++){
+            board.push(collumns);
+        }
+
+        board = board.map(row => {
+            row = row.map(() => {
 
                 const randomNumber = Math.floor(Math.random() * 99);
 
-                board[i][j] = (randomNumber < this.state.boardRandomness) ? 1 : 0;
-            }
-        }
+                if (randomNumber < this.state.boardRandomness)
+                    return true;
+                else
+                    return false;
+            });
+
+            return row;
+        });
 
         this.setState({
             boardPieces: board
         })
+    }
+
+    emptyBoard(length) {
+
+        return (new Array(length).fill(null)
+            .map(()=> new Array(length).fill(0)));
     }
 
     returnCellValue(row, col){
@@ -130,14 +145,12 @@ class App extends React.Component {
     handlelengthChange(e) {
         const newLegth = e.target.value
 
-        // this.setRandomBoard(newLegth);
-
         this.setState({
             isPlaying: false,
-            boardLength: newLegth,
+            boardLength: newLegth
         });
 
-        this.setRandomBoard(this.state.boardLength);
+        this.setRandomBoard();
     }
 
     handleRandomChange(e) {
@@ -148,7 +161,7 @@ class App extends React.Component {
             boardRandomness: value
         });
 
-        this.setRandomBoard(this.state.boardLength);
+        this.setRandomBoard();
     }
 
     handleSpeedChange(e) {
@@ -165,7 +178,7 @@ class App extends React.Component {
         this.playGameOfLife(shouldPlay);
 
         if (!shouldPlay)
-            this.setRandomBoard(this.state.boardLength);
+            this.setRandomBoard();
 
         this.setState({
             isPlaying: !this.state.isPlaying
@@ -192,7 +205,7 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        this.setRandomBoard(this.state.boardLength);
+        this.setRandomBoard();
     }
 
     render(){
