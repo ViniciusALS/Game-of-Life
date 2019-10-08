@@ -13,3 +13,25 @@
 .is-alive {
     background-color: black;
 }
+
+@media (max-width: 1025px) {
+    .game-board  {
+        width: 35vw;
+        height: 35vw;
+    }
+}
+
+@media (max-width: 769px) {
+    .game-board {
+        width: 70vw;
+        height: 70vw;
+    }
+}
+
+@media (max-width: 376px) {
+
+    .game-board {
+        width: 80vw;
+        height: 80vw;
+    }
+}

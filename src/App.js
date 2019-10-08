@@ -212,32 +212,38 @@ class App extends React.Component {
 
         return(
 
-            <div className="container">
+            <div className="page">
                 <h1>The Game of Life</h1>
 
-                <GameBoard
-                    isPlaying={this.state.isPlaying}
-                    board={this.state.boardPieces}/>
+                <div className="container">
 
-                <GameSlider
-                    label="Length"
-                    value={this.state.boardLength}
-                    onChange={this.handlelengthChange} />
+                    <GameBoard
+                        isPlaying={this.state.isPlaying}
+                        board={this.state.boardPieces}/>
 
-                <GameSlider
-                    label="Randomness"
-                    value={this.state.boardRandomness}
-                    onChange={this.handleRandomChange} />
+                    <div className="sliders">
+                        <GameSlider
+                            label="Length"
+                            value={this.state.boardLength}
+                            onChange={this.handlelengthChange} />
 
-                <GameSlider
-                    label="Speed"
-                    value={this.state.boardSpeed}
-                    onChange={this.handleSpeedChange} />
+                        <GameSlider
+                            label="Randomness"
+                            value={this.state.boardRandomness}
+                            onChange={this.handleRandomChange} />
 
-                <GameBtn
-                    isPlaying={this.state.isPlaying}
-                    onClick={this.handleBtnClick}/>
+                        <GameSlider
+                            label="Speed"
+                            value={this.state.boardSpeed}
+                            onChange={this.handleSpeedChange} />
 
+                        <GameBtn
+                            isPlaying={this.state.isPlaying}
+                            onClick={this.handleBtnClick}/>
+
+                    </div>
+
+                </div>
             </div>
 
         );

@@ -1,8 +1,67 @@
+.page {
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 1.1em;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     font-family: sans-serif;
     text-align: center;
-    width: 40vw;
+    font-size: 1.1em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+}
+
+.sliders {
+    padding: 1em;
+    width: 40vw;
+}
+
+@media (max-width: 1025px) {
+    .sliders {
+        width: 35vw;
+    }
+}
+
+@media (max-width: 769px) {
+
+    .container{
+        flex-direction: column;
+    }
+
+    @media (max-width: 1025px) {
+        .sliders {
+            width: 60vw;
+        }
+    }
+
+    .game-board {
+        width: 70vw;
+        height: 70vw;
+    }
+}
+
+@media (max-width: 769px) {
+
+    @media (max-width: 1025px) {
+        .sliders {
+            width: 70vw;
+        }
+    }
+}
+
+@media (max-width: 376px) {
+
+    @media (max-width: 1025px) {
+        .sliders {
+            width: 80vw;
+        }
+    }
 }
